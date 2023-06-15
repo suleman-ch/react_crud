@@ -1,22 +1,27 @@
-import './App.css';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import "./App.css";
+import About from "./components/pages/About";
+import Contact from "./components/pages/Contact";
+import Home from "./components/pages/Home";
+import Navbar from "./components/layout/Navbar";
+import { Route, Routes } from "react-router-dom";
+import NotFound from "./components/pages/NotFound";
+import AddUser from "./components/users/AddUser";
+import Edituser from "./components/users/Edituser";
+import User from "./components/users/User";
 
 function App() {
   return (
     <div className="App">
-      <h1 className='text-primary'>E-comm project</h1>
-      <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" Component={Home} />
+        <Route exact path="/about" Component={About} />
+        <Route exact path="/contact" Component={Contact} />
+        <Route exact path="/users/add" Component={AddUser}/>
+        <Route exact path="/users/edit/:id" Component={Edituser}/>
+        <Route exact path="/users/:id" Component={User}/>
+        <Route path="*" Component={NotFound} />
+      </Routes>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddUser = () => {
-    let Navigate =useNavigate()
+  let Navigate = useNavigate();
   const [user, setUser] = useState({
     name: "",
     username: "",
@@ -22,15 +22,15 @@ const AddUser = () => {
     e.preventDefault();
     await axios.post("http://localhost:3003/users", user);
     Swal.fire({
-        title: 'user has been added',
-        showClass: {
-          popup: 'animate__animated animate__fadeInDown'
-        },
-        hideClass: {
-          popup: 'animate__animated animate__fadeOutUp'
-        }
-      })
-    Navigate('/')
+      title: "user has been added",
+      showClass: {
+        popup: "animate__animated animate__fadeInDown",
+      },
+      hideClass: {
+        popup: "animate__animated animate__fadeOutUp",
+      },
+    });
+    Navigate("/");
     // window.location.replace('/');
     // history.push("/");
   };
